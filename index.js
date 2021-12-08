@@ -27,8 +27,10 @@ db.mongoose
     process.exit();
   });
 
+app.use(express.static(__dirname + "/public"));
+
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Anil Portfolio " });
+  res.sendFile(__dirname + "/public/index.html");
 });
 
 require("./app/routes/app.route")(app);
