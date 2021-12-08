@@ -14,7 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const db = require("./app/models");
-const { default: routers } = require("./app/routes/app.route");
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,
@@ -28,13 +27,11 @@ db.mongoose
     process.exit();
   });
 
-// app.use(express.static(__dirname + "/public"));
-
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/public/index.html");
+  res.json({ message: "Welcome to Anil Portfolio" });
 });
-app.use("/api/tutorials", routers);
-// require("./app/routes/app.route")(app);
+
+require("./app/routes/app.route")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
