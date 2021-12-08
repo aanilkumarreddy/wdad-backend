@@ -31,8 +31,6 @@ app.use(express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
-
-  // res.json({ message: "Welcome to Anil Portfolio" });
 });
 
 require("./app/routes/app.route")(app);
