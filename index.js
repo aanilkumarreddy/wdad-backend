@@ -28,7 +28,7 @@ db.mongoose
   });
 
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to Anil Portfolio" });
+  res.json({ message: "Welcome to Anil Portfolio " });
 });
 
 require("./app/routes/app.route")(app);
